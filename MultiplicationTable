@@ -11,8 +11,8 @@
 				if(j<10){
 					//console.log(i*j);
 					alert((i*j)%6==0 ? '*$' : 
-								((i*j)%2==0 ? '$' : 
-								((i*j)%3==0 ? '*' : (i*j))));
+						((i*j)%2==0 ? '$' : 
+						((i*j)%3==0 ? '*' : (i*j))));
 					MultiplicationTable(i,j+1);
 				}
 				else{
