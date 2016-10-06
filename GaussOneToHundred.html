@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>103AC2024 GaussOneToHundred</title>
+	<script type="text/javascript">
+	function CountGass(){
+		var x = parseInt(document.getElementById("num1").value);
+		var y = parseInt(document.getElementById("num2").value);
+		var z = parseInt(document.getElementById("num3").value);
+		
+		document.getElementById("result").value = x*(Math.abs(-2*(y+z))+1);
+	}
+	</script>
+</head>
+<body>
+	FirstNumber
+	<input type="text" name="num" id="num1" value="0"><br>
+	SecondNumber
+	<input type="text" name="num" id="num2" value="0"><br>
+	ThirdNumber
+	<input type="text" name="num" id="num3" value="0"><br>
+	<input type="button" name="btn" value="Count" onclick="CountGass()"><br>
+	Result<input type="text" name="num" id="result" value="0"><br>
+	</body>
+</html>
