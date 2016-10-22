@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>103AC2024 GaussOneToHundred</title>
+	<style type="text/css">
+	input[type="text"]{
+		width: 122px;
+		text-align: right;
+	}
+
+	input[type="button"]{
+		width: 40px;
+	}
+	</style>
+	<script type="text/javascript">
+	function ShowCalculatorValue(e){
+		document.getElementById("result").value += e;
+	}
+
+	function Reset(){
+		document.getElementById("result").value = "";
+	}
+	</script>
+</head>
+<body>
+	<input type="button" id="reset" name="reset" value="C" onclick="Reset();">
+	<input type="text" id="result" name="result" value="">
+	<br>
+	<input type="button" id="c7" name="c7" value="7" onclick="ShowCalculatorValue(this.value);">
+	<input type="button" id="c8" name="c8" value="8" onclick="ShowCalculatorValue(this.value);">
+	<input type="button" id="c9" name="c9" value="9" onclick="ShowCalculatorValue(this.value);">
+	<input type="button" id="cDivision" name="cDivision" value="÷" onclick="ShowCalculatorValue(this.value);">
+	<br>
+	<input type="button" id="c4" name="c4" value="4" onclick="ShowCalculatorValue(this.value);">
+	<input type="button" id="c5" name="c5" value="5" onclick="ShowCalculatorValue(this.value);">
+	<input type="button" id="c6" name="c6" value="6" onclick="ShowCalculatorValue(this.value);">
+	<input type="button" id="cMultiply" name="cMultiply" value="x" onclick="ShowCalculatorValue(this.value);">
+	<br>
+	<input type="button" id="c1" name="c1" value="1" onclick="ShowCalculatorValue(this.value);">
+	<input type="button" id="c2" name="c2" value="2" onclick="ShowCalculatorValue(this.value);">
+	<input type="button" id="c3" name="c3" value="3" onclick="ShowCalculatorValue(this.value);">
+	<input type="button" id="cSubtract" name="cSubtract" value="-" onclick="ShowCalculatorValue(this.value);">
+	<br>
+	<input type="button" id="c0" name="c0" value="0" onclick="ShowCalculatorValue(this.value);">
+	<input type="button" id="cPoint" name="cPoint" value="." onclick="ShowCalculatorValue(this.value);">
+	<input type="button" id="cEqual" name="cEqual" value="=" onclick="ShowCalculatorValue(this.value);">
+	<input type="button" id="cAdd" name="cAdd" value="+" onclick="ShowCalculatorValue(this.value);">
+</body>
+</html>
