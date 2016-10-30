@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>103AC2024 Calculator</title>
+	<style type="text/css">
+	input[type="text"]{
+		width: 122px;
+		text-align: right;
+	}
+
+	input[type="button"]{
+		width: 40px;
+	}
+	</style>
+	<script type="text/javascript">
+	var tmpx, tmpy;
+	var tmpOpr;
+	var istmpOpr = false;
+	var isFloat = false;
+	function fnShowValueOnScreen(e){
+		if(istmpOpr){
+			document.getElementById("result").value = "";
+			istmpOpr = !istmpOpr;
+		}
+		document.getElementById("result").value += e;
+		tmpy = parseFloat(document.getElementById("result").value);
+		//console.log(document.getElementById("result").value);
+	}
+
+	function fnOperatorsAdd(e){
+		if(tmpx == null && document.getElementById("result").value != null){ //第一個數
+			tmpx = tmpy; //紀錄被數
+			tmpOpr = e; //紀錄運算子
+			istmpOpr = true;
+			//console.log(tmpx + tmpOpr); //
+		}
+		else if(tmpOpr != null){
+			switch(e){
+				case "+":
+					tmpx += tmpy;
+					console.log(tmpx);
+					break;
+				case "-":
+					tmpx -= tmpy;
+					console.log(tmpx);
+					break;
+				case "x":
+					tmpx *= tmpy;
+					console.log(tmpx);
+					break;
+				case "÷":
+					tmpx /= tmpy;
+					console.log(tmpx);
+					break;
+				default:
+					fnOperatorsAdd(tmpOpr);
+					//tmpy = null;
+					break;
+			}
+			document.getElementById("result").value = tmpx;
+			tmpOpr = (e != "=" ? e : tmpOpr); //紀錄運算子
+			istmpOpr = true;
+		}
+		console.log("tmpx" + tmpx);
+		console.log("tmpy" + tmpy);
+		console.log(tmpOpr);
+	}
+
+	function fnPointAdd(e){
+		if(!isFloat){
+			fnShowValueOnScreen(e);
+			isFloat = true;
+		}
+	}
+
+	function fnClear(){
+		tmpx = null;
+		tmpy = null;
+		isFloat = false;
+		document.getElementById("result").value = "";
+	}
+	</script>
+</head>
+<body>
+	<input type="button" id="clear" name="clear" value="C" onclick="fnClear();">
+	<input type="text" id="result" name="result" value="">
+	<br>
+	<input type="button" id="c7" name="c7" value="7" onclick="fnShowValueOnScreen(this.value);">
+	<input type="button" id="c8" name="c8" value="8" onclick="fnShowValueOnScreen(this.value);">
+	<input type="button" id="c9" name="c9" value="9" onclick="fnShowValueOnScreen(this.value);">
+	<input type="button" id="cDivision" name="cDivision" value="÷" onclick="fnOperatorsAdd(this.value);">
+	<br>
+	<input type="button" id="c4" name="c4" value="4" onclick="fnShowValueOnScreen(this.value);">
+	<input type="button" id="c5" name="c5" value="5" onclick="fnShowValueOnScreen(this.value);">
+	<input type="button" id="c6" name="c6" value="6" onclick="fnShowValueOnScreen(this.value);">
+	<input type="button" id="cMultiply" name="cMultiply" value="x" onclick="fnOperatorsAdd(this.value);">
+	<br>
+	<input type="button" id="c1" name="c1" value="1" onclick="fnShowValueOnScreen(this.value);">
+	<input type="button" id="c2" name="c2" value="2" onclick="fnShowValueOnScreen(this.value);">
+	<input type="button" id="c3" name="c3" value="3" onclick="fnShowValueOnScreen(this.value);">
+	<input type="button" id="cSubtract" name="cSubtract" value="-" onclick="fnOperatorsAdd(this.value);">
+	<br>
+	<input type="button" id="c0" name="c0" value="0" onclick="fnShowValueOnScreen(this.value);">
+	<input type="button" id="cPoint" name="cPoint" value="." onclick="fnPointAdd(this.value);">
+	<input type="button" id="cEqual" name="cEqual" value="=" onclick="fnOperatorsAdd(this.value);">
+	<input type="button" id="cAdd" name="cAdd" value="+" onclick="fnOperatorsAdd(this.value);">
+</body>
+</html>
